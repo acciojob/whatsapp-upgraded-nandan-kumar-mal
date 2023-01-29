@@ -45,13 +45,14 @@ public class WhatsappRepository {
             group = new Group(groupName,2);
 
         }else{
-            String groupName =  "Group "+users.size();
+            String groupName =  "Group "+groupAndListOfMemberMap.size();
             group = new Group(groupName,2);
         }
 
         group.setAdmin(users.get(0).getName());
 
         groupHashMap.put(group.getName(), group);
+
 
         for(User user:users){
             addGroupAndMember(group.getName(), user.getName());
