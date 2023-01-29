@@ -60,7 +60,7 @@ public class WhatsappRepository {
         message.setTimestamp(new Date());
         listOfMessage.add(message);
 
-        return countOfMessage;
+        return ++countOfMessage;
     }
 
     public int sendMessageToGroup(Message message,User sender,Group group){
@@ -106,7 +106,7 @@ public class WhatsappRepository {
             throw new RuntimeException("Group does not exist");
 
         if(!approver.equals(groupHashMap.get(group).get(0)))
-            throw new RuntimeException("Approver doesnot have rights");
+            throw new RuntimeException("Approver does not have rights");
 
         boolean isParticipant = false;
         for(User user1:groupHashMap.get(group)){
@@ -155,7 +155,7 @@ public class WhatsappRepository {
             throw new RuntimeException("User not found");
 
         if(userMessageListMap.containsKey(user)){
-            countOfMessage = userMessageListMap.get(user).size();
+            countOfMessage = userMessageListMap.get(user).size() - 2;
             userMessageListMap.remove(user);
         }
         int overAllMessageCount = listOfMessage.size();
