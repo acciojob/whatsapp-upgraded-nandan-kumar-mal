@@ -10,7 +10,8 @@ public class Message {
     private Date timestamp;
 
 
-    public Message(){
+    public Message(String content){
+        this.content = content;
 
     }
 
