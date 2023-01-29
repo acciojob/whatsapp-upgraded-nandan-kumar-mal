@@ -28,9 +28,10 @@ public class WhatsappController {
         //Otherwise, create the user and return "SUCCESS"
         try{
 
-            return whatsappService.createUser(name, mobile);
+            whatsappService.createUser(name, mobile);
+            return "SUCCESS";
         }catch(Exception e){
-            throw new Exception("User already exists");
+            throw new RuntimeException(e);
         }
 
 

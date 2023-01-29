@@ -13,7 +13,11 @@ public class WhatsappService {
     public String createUser(String name,String mobile){
 
         User user = new User(name,mobile);
-        whatsappRepository.addUserToMap(user);
+        try{
+            whatsappRepository.addUserToMap(user);
+        }catch(Exception e){
+            throw new RuntimeException(e);
+        }
         return "SUCCESS";
     }
 
@@ -34,11 +38,12 @@ public class WhatsappService {
     }
 
     public int  removeUser(User user){
-        return 0;
+
+        return whatsappRepository.removeUser(user);
 
     }
 
     public String findMessage(Date start, Date end, int k){
-        return " ";
+        return "later ";
     }
 }
