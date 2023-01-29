@@ -28,7 +28,7 @@ public class WhatsappRepository {
     public void addUserToMap(User user)throws Exception{
 
             if(userHashMap.containsKey(user.getName())){
-                throw new RuntimeException("User already exists");
+                throw new Exception("User already exists");
             }
             userHashMap.put(user.getName(), user);
 

@@ -13,12 +13,15 @@ public class WhatsappService {
     public String createUser(String name,String mobile){
 
         User user = new User(name,mobile);
-        try{
-            whatsappRepository.addUserToMap(user);
-        }catch(Exception e){
-            throw new RuntimeException(e);
-        }
-        return "SUCCESS";
+       try{
+           whatsappRepository.addUserToMap(user);
+       }catch(Exception e){
+           throw new RuntimeException(e);
+       }
+       return "SUCCESS";
+
+
+
     }
 
     public Group createGroup(List<User> users){
