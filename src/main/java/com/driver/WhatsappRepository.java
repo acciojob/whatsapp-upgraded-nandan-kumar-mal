@@ -57,10 +57,10 @@ public class WhatsappRepository {
     }
 
     public int addMessageToMap(String content){
-        Message message = new Message();
-        message.setId(messageHashMap.size()+1);
-        message.setContent(content);
-        message.setTimestamp(new Date());
+        int msgId=messageHashMap.size()+1;
+        Date date = new Date();
+        Message message = new Message(msgId,content,date);
+
         messageHashMap.put(message.getId(),message);
 
         return message.getId();
