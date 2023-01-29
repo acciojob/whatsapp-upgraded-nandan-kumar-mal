@@ -30,11 +30,10 @@ public class Group {
 
     }
 
-    public Group(String name,int numberOfParticipants,String admin,int countOfMessage){
+    public Group(String name,int numberOfParticipants){
         this.name = name;
         this.numberOfParticipants = numberOfParticipants;
-        this.admin = admin;
-        this.countOfMessage = countOfMessage;
+
     }
 
 

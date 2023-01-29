@@ -39,13 +39,16 @@ public class WhatsappRepository {
     }
 
     public Group addGroupToMap(List<User> users){
-        Group group = new Group();
+        Group group;
         if(users.size()==2){
-            group.setName(users.get(1).getName());
+            String groupName =  users.get(1).getName();
+            group = new Group(groupName,2);
+
         }else{
-            group.setName("Group "+users.size());
+            String groupName =  "Group "+users.size();
+            group = new Group(groupName,2);
         }
-        group.setNumberOfParticipants(users.size());
+
         group.setAdmin(users.get(0).getName());
 
         groupHashMap.put(group.getName(), group);
@@ -57,9 +60,8 @@ public class WhatsappRepository {
     }
 
     public int addMessageToMap(String content){
-        Message message = new Message(content);
-        message.setId(messageHashMap.size()+1);
-
+        int msgId = messageHashMap.size()+1;
+        Message message = new Message(msgId,content);
         message.setTimestamp(new Date());
         messageHashMap.put(message.getId(),message);
 
