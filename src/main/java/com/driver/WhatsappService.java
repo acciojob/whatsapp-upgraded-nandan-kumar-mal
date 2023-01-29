@@ -10,14 +10,12 @@ public class WhatsappService {
 
     WhatsappRepository whatsappRepository = new WhatsappRepository();
 
-    public String createUser(String name,String mobile){
+    public String createUser(String name,String mobile)throws Exception{
 
         User user = new User(name,mobile);
-       try{
-           whatsappRepository.addUserToMap(user);
-       }catch(Exception e){
-           throw new RuntimeException(e);
-       }
+
+        whatsappRepository.addUserToMap(user);
+
        return "SUCCESS";
 
 
