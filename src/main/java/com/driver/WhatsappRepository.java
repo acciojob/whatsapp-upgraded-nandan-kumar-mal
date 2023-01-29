@@ -43,19 +43,16 @@ public class WhatsappRepository {
         if(users.size()==2){
             String groupName =  users.get(1).getName();
             group = new Group(groupName,2);
+            group.setAdmin(users.get(0).getName());
+            groupHashMap.put(group.getName(), group);
 
         }else{
             String groupName =  "Group "+groupAndListOfMemberMap.size();
-            group = new Group(groupName,2);
-        }
-
-        group.setAdmin(users.get(0).getName());
-
-        groupHashMap.put(group.getName(), group);
-
-
-        for(User user:users){
-            addGroupAndMember(group.getName(), user.getName());
+            group = new Group(groupName,2);group.setAdmin(users.get(0).getName());
+            groupHashMap.put(group.getName(), group);
+            for(User user:users){
+                addGroupAndMember(group.getName(), user.getName());
+            }
         }
         return group;
     }
